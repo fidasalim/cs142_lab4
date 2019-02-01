@@ -3,7 +3,7 @@
 #include "ll.cpp"
 using namespace std;
 
-class Queue{
+class QueueLl{
 	public:
 	//create a pointer end;
 	Node *end;
@@ -44,7 +44,7 @@ class Queue{
 };
 
 int main(){
-	Queue q1;
+	QueueLl q1;
 	if(q1.isEmpty()==1){
 			cout<<"THe queue is empty"<<endl;	
 	}
