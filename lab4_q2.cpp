@@ -26,15 +26,17 @@ class QueueFS{
 
 	}
 	//delete the last element
-	void Dequeue(){
-		QueueFS q1;
-		QueueFS q2;	
-		while(q2.end!=q1.front){
-			q1.end=q2.end;
-			q1.end= q1.end->next;
-			q2.end->next=q2.end;
+	void Dequeue(){	
+		while(s2.top->next!=NULL){
+			s2.top=s1.top;
+			s1.top= s1.top->next;
+			s2.top->next=s2.top;
 		}
-				
+		while(s2.top!=NULL){
+			s1.top=s2.top;
+			s1.top->next=s1.top;
+			s2.top=s2.top->next;
+		}		
 	}	
 
 	//check whether the queue is empty
@@ -58,5 +60,6 @@ int main(){
 	}
 	q1.display();
 	q1.size();
-	
+	q1.Dequeue();
+	q1.display();
 }
