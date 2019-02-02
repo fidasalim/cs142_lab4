@@ -26,16 +26,18 @@ class QueueFS{
 
 	}
 	//delete the last element
-	void Dequeue(){	
-		while(s2.top->next!=NULL){
-			s2.top=s1.top;
-			s1.top= s1.top->next;
-			s2.top->next=s2.top;
+	void Dequeue(){
+		//adding elements to second stack from first stack
+		while(s1.top->next!=NULL){
+			s2.push(s1.top->data);
+			s1.pop();
 		}
-		while(s2.top!=NULL){
-			s1.top=s2.top;
-			s1.top->next=s1.top;
-			s2.top=s2.top->next;
+		//removing last element to the first stack
+		s1.pop();
+		//removing elements from second stack and loading them back to first stack
+		while(s2.top != NULL){
+			s1.push(s2.top->data);
+			s2.pop();
 		}		
 	}	
 
