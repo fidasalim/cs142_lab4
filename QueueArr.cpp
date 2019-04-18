@@ -12,16 +12,17 @@ class Queue{
 		QueueArr[0];
 	}
 	//insert arr in the end
-	void push(int value){
+	void Enqueue(int value){
 		//end=new_end
 		end++;
 		//adding values to the end
 		QueueArr[end]=value;
-		
-			
+		if(end == 0){
+			front = end;
+		}		
 	}	
 	//delete the first element
-	void pop(){	
+	void Dequeue(){	
 		if(end == -1){
 			cout<<"The queue doesnt have sufficient elements"<<endl;
 		}
@@ -36,10 +37,10 @@ class Queue{
 	}
 	//count the number of items in the queue
 	int size(){
-	return end+1;
+	return (end-front+1);
 	}
 	void display(){
-		for(int i = (front+1); i<(end+1);i++){
+		for(int i = (front); i<(end+1);i++){
 			cout<<QueueArr[i]<<"->";
 		}
 		cout<<"NULL"<<endl;
@@ -51,17 +52,19 @@ int main(){
 
 	cout<<q1.isEmpty()<<endl;
 	
-	q1.push(2);
-	q1.push(3);
-	q1.push(1);
-	q1.push(5);
+	q1.Enqueue(2);
+	q1.Enqueue(3);
+	q1.Enqueue(1);
+	q1.Enqueue(5);
 	q1.display();
-	q1.pop();
+	q1.Dequeue();
 	q1.display();
 	cout<<"The size of stack is "<<q1.size()<<endl;
-	q1.push(9);
-	q1.push(6);
+	q1.Enqueue(9);
+	q1.Enqueue(6);
 	q1.display();
+	q1.Dequeue();
+	q1.display();
+	cout<<"The size of stack is "<<q1.size()<<endl;
 }
-
 
